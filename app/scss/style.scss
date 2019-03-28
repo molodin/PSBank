@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'TondoCorp-Light';
+  src: url("../fonts/TondoCorp-Light.eot");
+  src: local(""), url("../fonts/TondoCorp-Light.woff") format("woff"), url("../fonts/TondoCorp-Light.ttf") format("truetype"), url("../fonts/TondoCorp-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TondoCorp-Regular';
+  src: url("../fonts/TondoCorp-Regular.eot");
+  src: local(""), url("../fonts/TondoCorp-Regular.woff") format("woff"), url("../fonts/TondoCorp-Regular.ttf") format("truetype"), url("../fonts/TondoCorp-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TondoCorp-Bold';
+  src: url("../fonts/TondoCorp-Bold.eot");
+  src: local(""), url("../fonts/TondoCorp-Bold.woff") format("woff"), url("../fonts/TondoCorp-Bold.ttf") format("truetype"), url("../fonts/TondoCorp-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$tcl: 'TondoCorp-Light',
+sans-serif;
+$tcr: 'TondoCorp-Regular',
+sans-serif;
+$tcb: 'TondoCorp-Bold',
+sans-serif;
+
+body {
+  font-family: $tcr;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  padding-bottom: 60px;
+  height: 100vh;
+  text-align: center;
+  color: #ffffff;
+  background-image: url('../img/bg.svg');
+  background-size: 100%;
+  background-position: center;
+  &-text {
+    padding-top: 250px;
+    h3 {
+      margin: 0 0 30px;
+      font-family: $tcb;
+      font-size: 48px;
+      letter-spacing: 2px;
+    }
+    p {
+      // text-align: left;
+      font-family: $tcl;
+      font-size: 20px;
+      line-height: 34px;
+    }
+  }
+}
+
+@-webkit-keyframes cosmonaut-top {
+  0%   { top: 50px; }
+  50% { top: 80px; }
+  100%   { top: 50px; }
+}
+
+.cosmonaut {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  img {
+    width: 140px;
+  }
+  animation: cosmonaut-top ease-out 7s infinite;
+}
+
+.earth {
+  position: absolute;
+  top: 0;
+  right: 0;
+  img {
+    width: 300px;
+  }
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 10px 0;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666666;
+  background-color: #f4f4f4;
+  p {
+    margin: 0;
+  }
+}
