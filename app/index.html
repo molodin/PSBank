@@ -9,24 +9,71 @@
 	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 	<div class="hero">
-		<div class="cosmonaut">
-			<img src="img/cosmonaut.png" alt="">
-		</div>
-		<div class="earth">
-			<img src="img/earth.svg" alt="">
+		<div class="planet">
+			<div class="planet-one"></div>
+			<div class="planet-two"></div>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 offset-md-1">
-					<div class="hero-text">
+					<div class="hero-content hero-content-srart off">
+						<div class="cosmonaut">
+							<img src="img/cosmonaut.png" alt="">
+						</div>
 						<h3>Космический день</h3>
-						<p>12 апреля поздравляют только космонавтов. Мы решили исправить эту несправидливость. Поздравь своих близких, пусть они узнают какие они классные, точнее какие они...</p>
+						<p>12 апреля поздравляют только космонавтов. Мы решили исправить эту несправедливость.</p>
+						<a href="" class="btn-custom btn-start">Поздравить</a>
+					</div>
+					<div class="hero-content hero-content-two">
+						<div class="cosmonaut">
+							<img src="img/cosmonaut.png" alt="">
+						</div>
+						<h3>Поехали!</h3>
+						<p>Поздравь своих близких, пусть они узнают какие они классные, точнее, какие они...
+							<span>Космические</span></p>
+						<h4 class="greeting">
+							<span class="greeting-name"></span>
+							<span class="greeting-sex"></span>
+							<span class="greeting-who"></span>
+						</h4>
+						<form action="">
+							<div class="row">
+								<div class="col-md-10 offset-md-1">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="text" placeholder="Введите Имя" id="name">
+										</div>
+										<div class="col-md-4">
+											<select name="sex" id="sex" class="select-custom">
+												<option value="man">Космический</option>
+												<option value="woman">Космическая</option>
+											</select>
+										</div>
+										<div class="col-md-4">
+											<select name="who" id="who" class="select-custom">
+												<option></option>
+												<!-- Man -->
+												<option value="man">Выдумщик</option>
+												<option value="man">Изобретатель</option>
+												<option value="man">Герой</option>
+												<option value="man">Друг</option>
+												<!-- Woman -->
+												<option value="woman">Выдумщица</option>
+												<option value="woman">Изобретательница</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<a href="" class="btn-custom btn-start">Сгенерировать</a>
 					</div>
 				</div>
 			</div>
@@ -50,6 +97,7 @@
 	</footer>
 
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 
