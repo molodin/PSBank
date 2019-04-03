@@ -9,11 +9,14 @@
 	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/select2.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+		<div class="fb-share-button"
+    data-href="http://go2gos.ru/">jdddj</div>
 
 	<div class="hero">
 		<div class="planet">
@@ -38,12 +41,7 @@
 						<h3>Поехали!</h3>
 						<p>Поздравь своих близких, пусть они узнают какие они классные, точнее, какие они...
 							<span>Космические</span></p>
-						<h4 class="greeting">
-							<span class="greeting-name"></span>
-							<span class="greeting-sex"></span>
-							<span class="greeting-who"></span>
-						</h4>
-						<form action="">
+						<form class="greeting-form">
 							<div class="row">
 								<div class="col-md-10 offset-md-1">
 									<div class="row">
@@ -73,7 +71,18 @@
 								</div>
 							</div>
 						</form>
-						<a href="" class="btn-custom btn-start">Сгенерировать</a>
+						<a href="" class="btn-custom btn-two name-off who-off">Сгенерировать</a>
+					</div>
+					<div class="hero-content hero-content-three off">
+						<div class="cosmonaut">
+							<img src="img/cosmonaut.png" alt="">
+						</div>
+						<h3>Космический день</h3>
+						<h4 class="greeting">
+							<span class="greeting-name"></span>
+							<span class="greeting-sex"></span>
+							<span class="greeting-who"></span>
+						</h4>
 					</div>
 				</div>
 			</div>
@@ -89,6 +98,8 @@
 					</a>
 				</div>
 				<div class="col-md-9">
+						<a href="#" class="fb-share">Share on Facebook</a>
+						<div id="fb-root"></div>
 					<p>© 2001 — 2019 ПAO «Промсвязьбанк», все права защищены.</p>
 					<p>Генеральная лицензия на осуществление банковских операций № 3251 от 17 декабря 2014</p>
 				</div>
@@ -96,8 +107,50 @@
 		</div>
 	</footer>
 
+	<div class="image-fb image-social">
+		<div class="planet">
+			<img src="img/image-social/planet.png" alt="">
+		</div>
+		<div class="image-social-content">
+			<div class="cosmonaut">
+				<img src="img/cosmonaut.png" alt="">
+			</div>
+			<h3>С днём Космонавтики!</h3>
+			<h4 class="greeting">
+				<span class="greeting-name"></span>
+				<span class="greeting-sex"></span>
+				<span class="greeting-who"></span>
+			</h4>
+		</div>
+		<img src="img/image-social/logo.png" class="image-social-logo" alt="">
+	</div>
+	<div class="image-vk image-social">
+		<div class="planet">
+			<img src="img/image-social/planet.png" alt="">
+		</div>
+		<div class="image-social-content">
+			<div class="cosmonaut">
+				<img src="img/cosmonaut.png" alt="">
+			</div>
+			<h3>С днём Космонавтики!</h3>
+			<h4 class="greeting">
+				<span class="greeting-name"></span>
+				<span class="greeting-sex"></span>
+				<span class="greeting-who"></span>
+			</h4>
+		</div>
+		<img src="img/image-social/logo.png" class="image-social-logo" alt="">
+	</div>
+
+	<form method="POST" enctype="multipart/form-data" action="save.php" id="image-form">
+		<input type="hidden" name="img-val-fb" id="img-val-fb" value="">
+		<input type="hidden" name="img-val-vk" id="img-val-vk" value="">
+	</form>
+
 	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+	<script src="js/select2.min.js"></script>
+	<script src="js/html2canvas.js"></script>
+	<script src="js/jquery.plugin.html2canvas.js"></script>
 	<script src="js/main.js"></script>
 </body>
 
