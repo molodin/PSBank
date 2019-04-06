@@ -98,6 +98,9 @@ input {
     border-color: #D8000C;
   }
 }
+::-ms-clear {
+  display: none;
+}
 
 .select2-container {
   width: 100% !important;
@@ -336,6 +339,7 @@ a.btn-custom,
       position: relative;
       display: inline-block;
       margin: 0 15px;
+      text-decoration: none;
 
       img {
         transition: all 3s;
