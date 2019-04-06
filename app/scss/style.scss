@@ -31,7 +31,19 @@ sans-serif;
 
 html,
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+
+  html,
+  body {
+    overflow-x: inherit;
+  }
+
+  .footer {
+    // margin-bottom: -25px;
+  }
 }
 
 body {
@@ -39,7 +51,9 @@ body {
   font-family: $tcr;
 }
 
-a, input, .select2-container {
+a,
+input,
+.select2-container {
   transition: all .3s;
 }
 
@@ -75,6 +89,7 @@ input {
   line-height: 50px;
   letter-spacing: 1px;
   color: #00f2fe;
+  border-radius: 0;
   background: transparent;
   border: 2px solid #ffffff;
   outline: none;
@@ -84,27 +99,30 @@ input {
   }
 }
 
-.select-custom {
-  width: 100%;
-}
-
 .select2-container {
+  width: 100% !important;
   height: 50px;
   font-family: $tcr;
   font-size: 16px;
   line-height: 50px;
   letter-spacing: 1px;
   color: #00f2fe;
-  border: 2px solid #ffffff;
-  outline: none;
 
   &.novalidate {
-    border-color: #D8000C;
+    span.select2-selection.select2-selection--single {
+      border-color: #D8000C;
+    }
   }
 }
 
+span.select2-selection.select2-selection--single {
+  border: 2px solid #ffffff;
+  border-radius: 0;
+  transition: all .3s;
+}
+
 .select2-container--default .select2-selection--single {
-  height: 46px;
+  height: 50px;
   text-align: left;
   border: none;
   background-color: transparent;
@@ -125,6 +143,72 @@ input {
 
 .select2-container--default .select2-results__option[aria-disabled=true] {
   display: none;
+}
+
+span.select2-selection.select2-selection--single {
+  outline: none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 2px;
+  right: 2px;
+  width: 40px;
+  height: 50px - 4;
+  text-align: center;
+  background-color: #fff;
+  border-color: #fff;
+
+  &:after {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 1px;
+    margin-left: 1px;
+    display: inline-block;
+    width: 100%;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 46px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    color: #333;
+    content: '\f078';
+  }
+
+  b {
+    display: none;
+  }
+}
+
+.select2-dropdown {
+  border-radius: 0;
+  border: none;
+}
+
+.select2-results__option {
+  color: #333333;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: transparent;
+  color: #4FACFE;
+}
+
+.select2-container--open .select2-dropdown {
+  left: 0px;
+}
+
+.select2-results__option {
+  padding: 0 20px;
+  line-height: 46px;
+  transition: all .3s;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #F0F1F2;
 }
 
 a.btn-custom,
@@ -160,7 +244,7 @@ a.btn-custom,
   }
 }
 
-@-webkit-keyframes content-show {
+@keyframes content-show {
   0% {
     opacity: 0;
     transform: scale(0);
@@ -172,29 +256,17 @@ a.btn-custom,
   }
 }
 
-// @-webkit-keyframes content-hidden {
-//   0% {
-//     opacity: 1;
-//     transform: scale(1);
-//   }
-
-//   100% {
-//     opacity: 0;
-//     transform: scale(0);
-//   }
-// }
-
-@-webkit-keyframes cosmonaut-fly {
+@keyframes cosmonaut-fly {
   0% {
-    top: 0;
+    top: 40px;
   }
 
   50% {
-    top: -40px;
+    top: 0;
   }
 
   100% {
-    top: 0;
+    top: 40px;
   }
 }
 
@@ -202,20 +274,20 @@ a.btn-custom,
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  height: calc(100vh - 60px);
+  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   text-align: center;
   color: #ffffff;
   background-color: #091624;
-  background-image: url('../img/bg.svg');
+  background-image: url('../img/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  overflow-x: hidden;
 
   &-content {
     position: relative;
-    padding-top: 280px;
+    padding-top: 240px + 40 + 40;
     animation: content-show ease-out 1.5s;
 
     p {
@@ -229,6 +301,7 @@ a.btn-custom,
         display: block;
         font-family: $tcb;
         font-size: 26px;
+        letter-spacing: 2px;
       }
     }
 
@@ -236,8 +309,111 @@ a.btn-custom,
       margin-bottom: 40px;
     }
 
+    .share-title {
+      margin-top: 40px;
+      padding: 0;
+    }
+
+    .repeat {
+      display: inline-block;
+      margin-top: 60px;
+      text-decoration: none;
+      font-family: $tcr;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #fff;
+
+      i {
+        font-size: 18px;
+      }
+
+      &:hover {
+        color: #00f2fe;
+      }
+    }
+
+    .share-planet {
+      position: relative;
+      display: inline-block;
+      margin: 0 15px;
+
+      img {
+        transition: all 3s;
+      }
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 126px;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Brands";
+        font-size: 40px;
+        color: #fff;
+        transition: all .3s;
+      }
+
+      &-fb {
+        &:after {
+          content: '\f39e';
+        }
+      }
+
+      &-vk {
+        &:after {
+          content: '\f189';
+        }
+      }
+
+      &:hover {
+        &:after {
+          color: #00f2fe;
+        }
+      }
+    }
+
     &.off {
       display: none;
+    }
+
+    &-srart {}
+  }
+}
+
+@media only screen and (max-height: 740px) {
+  .hero {
+    &-content {
+      &-srart {
+        margin-top: 100px;
+        padding-bottom: 100px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 840px) {
+  .hero {
+    &-content {
+      &-two {
+        margin-top: 100px;
+        padding-bottom: 100px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 920px) {
+  .hero {
+    &-content {
+      &-three {
+        margin-top: 100px;
+        padding-bottom: 100px;
+      }
     }
   }
 }
@@ -248,14 +424,19 @@ a.btn-custom,
   font-family: $tcb;
   font-size: 38px;
   letter-spacing: 2px;
+  text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.7);
+
+  &-sex,
+  &-who {
+    text-transform: lowercase;
+  }
+}
+
+// IE Fix
+.backgroundcliptext .greeting {
   background: linear-gradient(to right, #4FACFE, #00F2FE);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.7);
-
-  &-name {
-    text-transform: capitalize;
-  }
 }
 
 .cosmonaut {
@@ -267,7 +448,24 @@ a.btn-custom,
   animation: cosmonaut-fly ease-out 4s infinite;
 
   img {
-    width: 220px;
+    width: auto;
+    height: 240px;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .hero {
+    &-content {
+      padding-top: 180px + 40 + 40;
+    }
+  }
+
+  .cosmonaut {
+    top: -180px;
+
+    img {
+      height: 180px;
+    }
   }
 }
 
@@ -280,29 +478,26 @@ a.btn-custom,
     position: absolute;
     top: 0;
     right: 0;
-    width: 550px;
-    height: 550px;
+    width: 32vw;
+    height: 32vw;
     border-radius: 50%;
     background: linear-gradient(219.57deg, #111111 34.48%, #0D6581 74.18%, #5DA0F3 92.87%);
   }
 
   &-two {
     position: absolute;
-    top: 280px;
+    top: 16vw;
     right: 60px;
     z-index: 1;
-    width: 180px;
-    height: 180px;
+    width: 11vw;
+    height: 11vw;
     border-radius: 50%;
     background: linear-gradient(219.57deg, rgba(17, 17, 17, 0.37) 34.95%, rgba(35, 220, 220, 0.5) 74.18%, rgba(144, 242, 224, 0.5) 92.87%);
   }
 }
 
 .footer {
-  position: fixed;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  height: 60px;
   padding: 10px 0;
   text-align: left;
   font-family: 'Open Sans', sans-serif;
@@ -319,17 +514,16 @@ a.btn-custom,
 .image-social {
   position: absolute;
   top: 0;
-  left: -0px;
+  left: 0;
   z-index: -1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   text-align: center;
   color: #ffffff;
   background-color: #091624;
   background-image: url('../img/image-social/bg.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
   background-position: center;
   overflow: hidden;
 
@@ -340,44 +534,139 @@ a.btn-custom,
 
   &-logo {
     position: absolute;
-    left: 30px;
-    bottom: 30px;
-    max-width: 230px;
+    top: 20px;
+    left: 20px;
+    max-width: 130px;
   }
 
   h3 {
-    margin-bottom: 30px;
-    font-size: 38px;
+    margin-bottom: 15px;
+    font-size: 22px;
   }
 
   .greeting {
-    font-size: 34px;
+    font-size: 20px;
     color: #00F2FE;
   }
 
   .cosmonaut {
     position: relative;
     top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     animation: none;
+
     img {
-      max-width: 150px;
+      width: 80px;
+      height: auto;
     }
   }
 
   .planet {
-    top: -70px;
-    right: -70px;
-    transform: scale(.70)
+    top: 0;
+    right: 0;
+
+    img {
+      width: 140px;
+    }
+  }
+
+  &.off {
+    display: none;
   }
 }
 
 .image-fb {
-  width: 1074px;
-  height: 564px;
+  width: 600px;
+  height: 314px;
+  padding-top: 70px;
 }
 
 .image-vk {
-  width: 1074px;
-  height: 480px;
+  width: 600px;
+  height: 268px;
+  padding-top: 50px;
+}
+
+@media only screen and (max-width: 991px) {
+  .select-item {
+    margin-top: 30px;
+  }
+
+  .planet {
+    top: -110px;
+    right: -110px;
+    transform: scale(1.3);
+  }
+
+  .footer {
+    height: auto;
+    padding: 15px 0;
+
+    img {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .planet {
+    top: -120px;
+    right: -120px;
+    transform: scale(1.6);
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .planet {
+    display: none;
+  }
+
+  .hero-content {
+    margin-top: 50px;
+    padding-top: 240px;
+    padding-bottom: 50px + 40;
+
+    h3 {
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .greeting {
+      font-size: 28px;
+    }
+
+    .share-title {
+      margin-bottom: 30px;
+    }
+
+    .repeat {
+      margin-top: 30px;
+    }
+
+    p {
+      margin-bottom: 25px;
+      font-size: 16px;
+      line-height: 22px;
+      span {
+        margin-top: 10px;
+        font-size: 20px;
+      }
+    }
+
+    .share-planet {
+      img {
+        max-width: 90px;
+      }
+      &:after {
+        font-size: 28px;
+        line-height: 90px;
+      }
+    }
+  }
+
+  .footer {
+    img {
+      max-width: 300px;
+    }
+  }
 }

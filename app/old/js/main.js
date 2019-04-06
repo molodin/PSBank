@@ -1,67 +1,52 @@
 $(document).ready(function () {
 
-  // if (localStorage.getItem('repeat') == 'true') {
-  //   $('.hero-content-srart').addClass('off');
-  //   $('.hero-content-two').removeClass('off');
-  //   localStorage.setItem('repeat', 'false');
-  // }
-
-  // setTimeoutRepeat(function () {
-  //   localStorage.setItem('repeat', 'false');
-  // }, 3000);
-
-  // Share FB
-
-  (function (d, s, id) {
+  (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id))
-      return;
+        return;
     js = d.createElement(s);
     js.id = id;
-    js.src = '//connect.facebook.net/en_US/all.js';
+    js.src = "//connect.facebook.net/en_US/all.js";
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+}(document, 'script', 'facebook-jssdk'));
 
-  window.fbAsyncInit = function () {
+window.fbAsyncInit = function() {
     FB.init({
-      appId: '807093306313734',
-      status: true,
-      xfbml: true,
+        appId: '807093306313734',
+        status: true,
+        xfbml: true,
     });
-  };
+};
 
-  document.getElementById('shareFb').onclick = function () {
-    FB.ui({
-      method: 'share',
-      display: 'popup',
-      href: 'http://psbcosmos.ru/' + $('.userFingerprintFb').text() + '.html',
-    });
-  }
-
-  // Share VK
+      document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'http://psbcosmos.ru/'+$('h6').text()+'.html',
+  });
+}
 
   var filesize = parseFloat($('.filesize').text());
-  if (filesize < 1) {
-    var imageVk = $('.userFingerprintFb').text();
-  } else {
-    var imageVk = $('.userFingerprintVk').text();
-  }
-  document.getElementById('shareVk').innerHTML = (VK.Share.button({
-    type: 'custom',
-    url: 'http://psbcosmos.ru/' + $('.userFingerprintFb').text() + '.html',
-    title: 'Космический день',
-    image: 'http://psbcosmos.ru/' + imageVk + '.jpg',
-    noparse: true
-  }));
+if (filesize < 1) {
+  var imageVk = $('h6').text();
+} else {
+  var imageVk = $('h5.userFingerprintVk').text();
+}
+console.log(imageVk)
+    document.getElementById("vk_share_button").innerHTML = (VK.Share.button({
+  type: "custom",
+  text: "Пост ВК",
+  url: 'http://psbcosmos.ru/'+$('h6').text()+'.html',
+  title: 'Космический день',
+  image: 'http://psbcosmos.ru/'+imageVk+'.jpg',
+  noparse: true
+}));
 
-  // Off mobile scroll
-
-  $(window).scroll(function () {
-    if ($('body').scrollLeft() > 0)
-      $('body').scrollLeft(0);
-  });
-
-  // Capture images for Fb and Vk
+        $(window).scroll(function() {
+    if($('body').scrollLeft()>0)
+        $('body').scrollLeft(0);
+    });
+  
 
   function capture() {
     $('.image-fb').html2canvas({
@@ -117,17 +102,10 @@ $(document).ready(function () {
       if ($(this).hasClass('name-on') && $(this).hasClass('who-on')) {
         $('.hero-content-two').addClass('off');
         $('.hero-content-three').removeClass('off');
-        // capture();
-        $('.image-social').removeClass('off');
+        capture();
       }
       e.preventDefault();
     });
-    localStorage.setItem('greeting-name', $('.hero-content-two .greeting-name').text());
-    localStorage.setItem('greeting-sex', $('.hero-content-two .greeting-sex').text().toLowerCase());
-    localStorage.setItem('greeting-who', $('.hero-content-two .greeting-who').text().toLowerCase());
-    console.log(localStorage.getItem('greeting-name'));
-    console.log(localStorage.getItem('greeting-sex'));
-    console.log(localStorage.getItem('greeting-who'));
   });
 
   $('#sex').select2({
@@ -167,12 +145,6 @@ $(document).ready(function () {
       placeholder: 'Кого поздравляем?',
     });
     $("#who").val('').trigger('change');
-  });
-
-  $('.repeat').on('click', function (e) {
-    window.location.href = '/';
-    localStorage.setItem('repeat', 'true');
-    e.preventDefault();
   });
 
 });
