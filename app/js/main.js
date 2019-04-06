@@ -36,7 +36,12 @@ $(document).ready(function () {
       display: 'popup',
       href: 'http://psbcosmos.ru/' + $('.userFingerprintFb').text() + '.html',
     });
-  }
+  };
+
+  $('.share-planet-fb').on('click', function (e) {
+    $('#shareFb').trigger('click');
+    e.preventDefault();
+  });
 
   // Share VK
 
@@ -47,12 +52,20 @@ $(document).ready(function () {
     var imageVk = $('.userFingerprintVk').text();
   }
   document.getElementById('shareVk').innerHTML = (VK.Share.button({
-    type: 'custom',
     url: 'http://psbcosmos.ru/' + $('.userFingerprintFb').text() + '.html',
     title: 'Космический день',
     image: 'http://psbcosmos.ru/' + imageVk + '.jpg',
     noparse: true
+  },
+  {
+    type: 'custom',
+    text: 'Share VK',
   }));
+
+  $('.share-planet-vk').on('click', function (e) {
+    $('#shareVk a').trigger('click');
+    e.preventDefault();
+  });
 
   // Off mobile scroll
 
@@ -117,7 +130,7 @@ $(document).ready(function () {
       if ($(this).hasClass('name-on') && $(this).hasClass('who-on')) {
         $('.hero-content-two').addClass('off');
         $('.hero-content-three').removeClass('off');
-        // capture();
+        capture();
         $('.image-social').removeClass('off');
       }
       e.preventDefault();
@@ -125,9 +138,6 @@ $(document).ready(function () {
     localStorage.setItem('greeting-name', $('.hero-content-two .greeting-name').text());
     localStorage.setItem('greeting-sex', $('.hero-content-two .greeting-sex').text().toLowerCase());
     localStorage.setItem('greeting-who', $('.hero-content-two .greeting-who').text().toLowerCase());
-    console.log(localStorage.getItem('greeting-name'));
-    console.log(localStorage.getItem('greeting-sex'));
-    console.log(localStorage.getItem('greeting-who'));
   });
 
   $('#sex').select2({
@@ -169,8 +179,12 @@ $(document).ready(function () {
     $("#who").val('').trigger('change');
   });
 
+  $('.hero-content-three .greeting-name').text(localStorage.getItem('greeting-name'));
+  $('.hero-content-three .greeting-sex').text(localStorage.getItem('greeting-sex'));
+  $('.hero-content-three .greeting-who').text(localStorage.getItem('greeting-who'));
+
   $('.repeat').on('click', function (e) {
-    window.location.href = '/';
+    window.location.href = 'http://psbcosmos.ru/';
     localStorage.setItem('repeat', 'true');
     e.preventDefault();
   });
