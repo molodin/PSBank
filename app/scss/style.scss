@@ -34,7 +34,7 @@ body {
   overflow-x: hidden;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
 
   html,
   body {
@@ -58,7 +58,7 @@ input,
 }
 
 h3 {
-  margin: 0 0 40px;
+  margin: 0 0 30px;
   font-family: $tcb;
   font-size: 48px;
   letter-spacing: 2px;
@@ -98,6 +98,7 @@ input {
     border-color: #D8000C;
   }
 }
+
 ::-ms-clear {
   display: none;
 }
@@ -192,7 +193,7 @@ span.select2-selection.select2-selection--single {
 }
 
 .select2-results__option {
-  color: #333333;
+  color: #fff;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
@@ -212,6 +213,10 @@ span.select2-selection.select2-selection--single {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: #F0F1F2;
+}
+
+.select2-dropdown {
+  background-color: #0e1e33;
 }
 
 a.btn-custom,
@@ -273,6 +278,20 @@ a.btn-custom,
   }
 }
 
+@keyframes star {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -294,7 +313,7 @@ a.btn-custom,
     animation: content-show ease-out 1.5s;
 
     p {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       font-family: $tcr;
       font-size: 21px;
       line-height: 38px;
@@ -313,13 +332,13 @@ a.btn-custom,
     }
 
     .share-title {
-      margin-top: 40px;
+      margin-top: 35px;
       padding: 0;
     }
 
     .repeat {
       display: inline-block;
-      margin-top: 60px;
+      margin-top: 35px;
       text-decoration: none;
       font-family: $tcr;
       font-size: 20px;
@@ -384,8 +403,6 @@ a.btn-custom,
     &.off {
       display: none;
     }
-
-    &-srart {}
   }
 }
 
@@ -393,8 +410,8 @@ a.btn-custom,
   .hero {
     &-content {
       &-srart {
-        margin-top: 100px;
-        padding-bottom: 100px;
+        margin-top: 60px;
+        padding-bottom: 60px;
       }
     }
   }
@@ -404,8 +421,8 @@ a.btn-custom,
   .hero {
     &-content {
       &-two {
-        margin-top: 100px;
-        padding-bottom: 100px;
+        margin-top: 60px;
+        padding-bottom: 60px;
       }
     }
   }
@@ -415,8 +432,8 @@ a.btn-custom,
   .hero {
     &-content {
       &-three {
-        margin-top: 100px;
-        padding-bottom: 100px;
+        margin-top: 60px;
+        padding-bottom: 60px;
       }
     }
   }
@@ -430,6 +447,10 @@ a.btn-custom,
   letter-spacing: 2px;
   text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.7);
 
+  &-name {
+    text-transform: initial;
+  }
+
   &-sex,
   &-who {
     text-transform: lowercase;
@@ -441,6 +462,36 @@ a.btn-custom,
   background: linear-gradient(to right, #4FACFE, #00F2FE);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.star {
+  position: absolute;
+  background-image: url('../img/star.svg');
+  background-size: cover;
+
+  &-1 {
+    top: 14vh;
+    left: 10vw;
+    width: 15px;
+    height: 15px;
+    animation: star ease-out 2s infinite;
+  }
+
+  &-2 {
+    bottom: 11vh;
+    right: 17vw;
+    width: 20px;
+    height: 20px;
+    animation: star ease-out 2.2s infinite;
+  }
+
+  &-3 {
+    bottom: 30vh;
+    left: 10vw;
+    width: 25px;
+    height: 25px;
+    animation: star ease-out 1.8s infinite;
+  }
 }
 
 .cosmonaut {
@@ -460,7 +511,7 @@ a.btn-custom,
 @media only screen and (max-width: 1440px) {
   .hero {
     &-content {
-      padding-top: 180px + 40 + 40;
+      padding-top: 180px + 40 + 30;
     }
   }
 
@@ -540,27 +591,31 @@ a.btn-custom,
     position: absolute;
     top: 20px;
     left: 20px;
-    max-width: 130px;
+    max-width: 220px;
   }
 
   h3 {
-    margin-bottom: 15px;
-    font-size: 22px;
+    margin-bottom: 30px;
+    font-size: 34px;
   }
 
   .greeting {
-    font-size: 20px;
+    font-size: 32px;
     color: #00F2FE;
+
+    &-name {
+      text-transform: initial;
+    }
   }
 
   .cosmonaut {
     position: relative;
     top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     animation: none;
 
     img {
-      width: 80px;
+      width: 140px;
       height: auto;
     }
   }
@@ -570,7 +625,7 @@ a.btn-custom,
     right: 0;
 
     img {
-      width: 140px;
+      width: 250px;
     }
   }
 
@@ -580,15 +635,15 @@ a.btn-custom,
 }
 
 .image-fb {
-  width: 600px;
-  height: 314px;
-  padding-top: 70px;
+  width: 1000px;
+  height: 523px;
+  padding-top: 115px;
 }
 
 .image-vk {
-  width: 600px;
-  height: 268px;
-  padding-top: 50px;
+  width: 1000px;
+  height: 447px;
+  padding-top: 75px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -610,6 +665,10 @@ a.btn-custom,
       margin-bottom: 15px;
     }
   }
+
+  // .star {
+  //   display: none;
+  // }
 }
 
 @media only screen and (max-width: 767px) {
@@ -651,6 +710,7 @@ a.btn-custom,
       margin-bottom: 25px;
       font-size: 16px;
       line-height: 22px;
+
       span {
         margin-top: 10px;
         font-size: 20px;
@@ -661,6 +721,7 @@ a.btn-custom,
       img {
         max-width: 90px;
       }
+
       &:after {
         font-size: 28px;
         line-height: 90px;

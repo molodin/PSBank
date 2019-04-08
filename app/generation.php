@@ -5,7 +5,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<title>PSBank</title>
 	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
@@ -16,15 +15,19 @@
 	<script src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
 </head>
 
-  <body>
+	<?
+		if ($_SERVER['REMOTE_ADDR'] == '5.8.177.90' or $_SERVER['REMOTE_ADDR'] == '212.112.100.44' or $_SERVER['REMOTE_ADDR'] == '212.112.122.230' or $_SERVER['REMOTE_ADDR'] == '94.25.169.182') {
+    		echo '<body>';
+		} else {
+			echo '<body style="display: none;">';
+		}
+	?>
+	<!-- <body> -->
 
   <div id="shareFb" style="display: none;"></div>
   <div id="shareVk" style="display: none;"></div>
 
 	<div class="hero">
-		<div class="star star-1"></div>
-		<div class="star star-2"></div>
-		<div class="star star-3"></div>
 		<div class="planet">
 			<div class="planet-one"></div>
 			<div class="planet-two"></div>
