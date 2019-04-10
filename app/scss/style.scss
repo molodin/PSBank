@@ -40,10 +40,6 @@ body {
   body {
     overflow-x: inherit;
   }
-
-  .footer {
-    // margin-bottom: -25px;
-  }
 }
 
 body {
@@ -478,7 +474,7 @@ a.btn-custom,
   }
 
   &-2 {
-    bottom: 11vh;
+    bottom: 10vh;
     right: 17vw;
     width: 20px;
     height: 20px;
@@ -486,8 +482,8 @@ a.btn-custom,
   }
 
   &-3 {
-    bottom: 30vh;
-    left: 10vw;
+    bottom: 32vh;
+    left: 22vw;
     width: 25px;
     height: 25px;
     animation: star ease-out 1.8s infinite;
@@ -659,10 +655,15 @@ a.btn-custom,
 
   .footer {
     height: auto;
-    padding: 15px 0;
+    padding: 10px 0;
 
     img {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 16px;
     }
   }
 
@@ -731,7 +732,7 @@ a.btn-custom,
 
   .footer {
     img {
-      max-width: 300px;
+      max-width: 220px;
     }
   }
 }
