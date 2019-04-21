@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>PSBank</title>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
 	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -13,21 +14,36 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<script src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+	   ym(53203024, "init", {
+	        clickmap:true,
+	        trackLinks:true,
+	        accurateTrackBounce:true
+	   });
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/53203024" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
 </head>
 
-	<?
-		if ($_SERVER['REMOTE_ADDR'] == '5.8.177.90' or $_SERVER['REMOTE_ADDR'] == '212.112.100.44' or $_SERVER['REMOTE_ADDR'] == '212.112.122.230' or $_SERVER['REMOTE_ADDR'] == '94.25.169.182') {
-    		echo '<body>';
-		} else {
-			echo '<body style="display: none;">';
-		}
-	?>
-	<!-- <body> -->
+  <body>
 
-  <div id="shareFb" style="display: none;"></div>
-  <div id="shareVk" style="display: none;"></div>
+  <?
+  	$today = date("H:i:s");
+  	$whoGen = $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'] . 'whoIn';
+  	$whoGen = md5($whoGen);
+  ?>
+
+  <span class="whoGenIn" style="display: none;"><? echo $whoGen; ?></span>
 
 	<div class="hero">
+		<div class="star star-1"></div>
+		<div class="star star-2"></div>
+		<div class="star star-3"></div>
 		<div class="planet">
 			<div class="planet-one"></div>
 			<div class="planet-two"></div>
@@ -35,21 +51,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 offset-md-1">
-					<div class="hero-content hero-content-srart">
-						<div class="cosmonaut">
-							<img src="img/cosmonaut.png" alt="">
-						</div>
-						<h3>Космический день</h3>
-						<p>12 апреля поздравляют только космонавтов. Мы решили исправить эту несправедливость.</p>
-						<a href="" class="btn-custom btn-start">Поздравить</a>
-					</div>
-					<div class="hero-content hero-content-two off">
+					<div class="hero-content hero-content-two">
 						<div class="cosmonaut">
 							<img src="img/cosmonaut.png" alt="">
 						</div>
 						<h3>Поехали!</h3>
-						<p>Поздравь своих близких, пусть они узнают какие они классные, точнее, какие они...
-							<span>Космические</span></p>
+						<p>Поздравь своих близких, пусть узнают, какие они классные, точнее, какие они...
+							<span>Космические!</span></p>
 						<form class="greeting-form">
 							<div class="row">
 								<div class="col-xl-10 offset-xl-1 col-lg-12">
@@ -100,13 +108,25 @@
 												<option value="man">Растяпа</option>
 												<option value="man">Неряха</option>
 												<option value="man">Неудачник</option>
+												<option value="man">Приколист</option>
+												<option value="man">Собеседник</option>
+												<option value="man">Моряк</option>
+												<option value="man">Силач</option>
+												<option value="man">Врач</option>
+												<option value="man">Музыкант</option>
+												<option value="man">Ковбой</option>
+												<option value="man">Мужчина</option>
+												<option value="man">Повар</option>
+												<option value="man">Рассказчик</option>
+												<option value="man">Папа</option>
+												<option value="man">Дядя</option>
+												<option value="man">Начальник</option>
 												<!-- Woman -->
 												<option value="woman">Выдумщица</option>
 												<option value="woman">Изобретательница</option>
 												<option value="woman">Героиня</option>
 												<option value="woman">Подруга</option>
 												<option value="woman">Тусовщица</option>
-												<option value="woman">Космос</option>
 												<option value="woman">Экономистка</option>
 												<option value="woman">Чубака</option>
 												<option value="woman">Бухгалтер</option>
@@ -123,6 +143,10 @@
 												<option value="woman">Зайка</option>
 												<option value="woman">Транжира</option>
 												<option value="woman">Скромница</option>
+												<option value="woman">Крошка</option>
+												<option value="woman">Жена</option>
+												<option value="woman">Мама</option>
+												<option value="woman">Зажигалка</option>
 											</select>
 										</div>
 									</div>
@@ -136,27 +160,6 @@
 							<span class="greeting-who"></span>
 						</h4>
 					</div>
-					<!-- <div class="hero-content hero-content-three off">
-						<div class="cosmonaut">
-							<img src="img/cosmonaut.png" alt="">
-						</div>
-						<h3>Космический день</h3>
-						<h4 class="greeting">
-							<span class="greeting-name"></span>
-							<span class="greeting-sex"></span>
-							<span class="greeting-who"></span>
-						</h4>
-						<p class="share-title"><span>Поделись с другом</span></p>
-						<div>
-							<a href="" class="share-planet share-planet-fb">
-								<img src="img/share-planet-fb.svg" alt="">
-							</a>
-							<a href="" class="share-planet share-planet-vk">
-								<img src="img/share-planet-vk.svg" alt="">
-							</a>
-						</div>
-						<a href="" class="repeat">Повторить <i class="fas fa-redo"></i></a>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -217,6 +220,9 @@
 		<input type="hidden" name="img-val-fb" id="img-val-fb" value="">
 		<input type="hidden" name="img-val-vk" id="img-val-vk" value="">
 	</form>
+
+	<div id="shareFb" style="display: none;"></div>
+  <div id="shareVk" style="display: none;"></div>
 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/select2.min.js"></script>

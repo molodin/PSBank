@@ -1,15 +1,5 @@
 $(document).ready(function () {
 
-  // if (localStorage.getItem('repeat') == 'true') {
-  //   $('.hero-content-srart').addClass('off');
-  //   $('.hero-content-two').removeClass('off');
-  //   localStorage.setItem('repeat', 'false');
-  // }
-
-  // setTimeoutRepeat(function () {
-  //   localStorage.setItem('repeat', 'false');
-  // }, 3000);
-
   // Share FB
 
   (function (d, s, id) {
@@ -53,7 +43,7 @@ $(document).ready(function () {
   }
   document.getElementById('shareVk').innerHTML = (VK.Share.button({
     url: 'http://psbcosmos.ru/' + $('.userFingerprintFb').text() + '.html',
-    title: 'Космический день',
+    title: 'Поздравь близких с Днём Космонавтики!',
     image: 'http://psbcosmos.ru/' + imageVk + '.jpg',
     noparse: true
   },
@@ -91,12 +81,6 @@ $(document).ready(function () {
     });
   };
 
-  $('.btn-start').on('click', function (e) {
-    $('.hero-content-srart').addClass('off');
-    $('.hero-content-two').removeClass('off');
-    e.preventDefault();
-  });
-
   $('.btn-two').on('click', function (e) {
     if ($(this).hasClass('name-off')) {
       $('#name').addClass('novalidate')
@@ -120,6 +104,9 @@ $(document).ready(function () {
     } else {
       $('.btn-two').removeClass('who-on').addClass('who-off');
     }
+    if ($('#name').val().toLowerCase() == 'хуй' || $('#name').val().toLowerCase() == 'пизда' || $('#name').val().toLowerCase() == 'жопа' || $('#name').val().toLowerCase() == 'мразь' || $('#name').val().toLowerCase() == 'хуйня' || $('#name').val().toLowerCase() == 'понос' || $('#name').val().toLowerCase() == 'гнида' || $('#name').val().toLowerCase() == 'вагина' || $('#name').val().toLowerCase() == 'член' || $('#name').val().toLowerCase() == 'гавно' || $('#name').val().toLowerCase() == 'пидарас' || $('#name').val().toLowerCase() == 'гей' || $('#name').val().toLowerCase() == 'дура') {
+  		$('#name').addClass('novalidate');
+  	}
     $('.btn-two').on('click', function (e) {
       if ($(this).hasClass('name-off')) {
         $('#name').addClass('novalidate')
@@ -150,9 +137,10 @@ $(document).ready(function () {
 
   $('#name').on('input', function () {
     $('.greeting .greeting-name').text($(this).val() + ',');
+    $('.greeting .greeting-sex').text('ты ' + $('#sex option:selected').text());
+    $('.greeting .greeting-who').text($('#who option:selected').text() + '!');
   });
 
-  $('.greeting .greeting-sex').text('ты ' + $('#sex option:selected').text());
   $('#sex').on('change', function () {
     $('.greeting .greeting-sex').text('ты ' + $('#sex option:selected').text());
   });
@@ -183,10 +171,21 @@ $(document).ready(function () {
   $('.hero-content-three .greeting-sex').text(localStorage.getItem('greeting-sex'));
   $('.hero-content-three .greeting-who').text(localStorage.getItem('greeting-who'));
 
-  $('.repeat').on('click', function (e) {
-    window.location.href = 'http://psbcosmos.ru/';
-    localStorage.setItem('repeat', 'true');
-    e.preventDefault();
+  $('.btn-two').on('click', function () {
+    localStorage.setItem('whoGen', $('.whoGenIn').text());
   });
+
+  if (localStorage.getItem('whoGen') != $('.whoGen').text()) {
+    $('.share-planet').hide();
+    $('.greeting span').text('');
+    $('.share-title span').text('Поздравь своих друзей в ответ');
+    $('.repeat span').text('Поздравить');
+    $('.repeat').css({
+      color: '#333',
+      margin: '30px 0 0'
+    });
+    $('.repeat').addClass('btn-custom');
+    $('.repeat').removeClass('repeat');
+  };
 
 });

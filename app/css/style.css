@@ -538,7 +538,7 @@ a.btn-custom:hover:after,
   width: 250px; }
 
 .image-social.off {
-  display: none; }
+  /*display: none;*/ }
 
 .image-fb {
   width: 1000px;
